@@ -34,3 +34,5 @@ class UsersRepository {
         return { ...this._baseParams, ...additionalArgs }
     }
 }
+
+exports.UsersRepository = UsersRepository
