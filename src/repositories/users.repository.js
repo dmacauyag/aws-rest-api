@@ -16,6 +16,13 @@ class UsersRepository {
         return response.Items || []
     }
 
+    async get (id) {
+        const params = this._createParamObject({ Key: { id } })
+        const response = await this._documentClient.get(params).promise()
+
+        return response.Item
+    }
+
     async put (user) {
         const params = this._createParamObject({ Item: user })
         await this._documentClient.put(params).promise()
