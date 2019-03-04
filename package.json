@@ -4,7 +4,10 @@
   "description": "Basic crud API to learn AWS services",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sls": "serverless",
+    "seed": "node ./seed/runner.js",
+    "start": "sls offline start"
   },
   "keywords": [],
   "author": "",
