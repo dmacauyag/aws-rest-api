@@ -26,8 +26,9 @@ class UsersRepository {
         return response.Item
     }
 
-    async put (user) {
-        const params = this._createParamObject({ Item: user })
+    async put (user, id) {
+        const userObject = { id, lastUpdated: Date.now(), ...user }
+        const params = this._createParamObject({ Item: userObject })
         await this._documentClient.put(params).promise()
     
         return user
