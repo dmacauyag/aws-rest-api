@@ -12,7 +12,7 @@ exports.handler = async (event) => {
   const { body } = event
   const user = parseJson(body)
 
-  await repository.put(user)
+  await repository.post(user)
 
-  return created()
+  return created(user)
 }

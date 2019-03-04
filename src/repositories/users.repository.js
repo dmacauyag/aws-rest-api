@@ -1,3 +1,5 @@
+const { guidGenerator } = require('../utils/index')
+
 class UsersRepository {
     get _baseParams () {
         return {
@@ -28,6 +30,14 @@ class UsersRepository {
         const params = this._createParamObject({ Item: user })
         await this._documentClient.put(params).promise()
     
+        return user
+    }
+
+    async post (user) {
+        const userObject = { id: guidGenerator(), lastUpdated: Date.now(), ...user }
+        const params = this._createParamObject({ Item: userObject })
+        await this._documentClient.put(params).promise()
+
         return user
     }
     
