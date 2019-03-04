@@ -3,6 +3,7 @@ require('dotenv/config')
 const { UserSeeder } = require('./user.seeder')
 const { DynamoDB } = require('aws-sdk')
 const { DocumentClient } = DynamoDB
+const { USERS_TABLE } = process.env
 const usersMockData = require('./users-test-data.json')
 
 const dynamo = new DynamoDB({
@@ -13,7 +14,7 @@ const dynamo = new DynamoDB({
 })
 
 const doclient = new DocumentClient({ service: dynamo })
-const userSeeder = new UserSeeder(dynamo, doclient)
+const userSeeder = new UserSeeder(dynamo, doclient, USERS_TABLE)
 
 const log = (...mgs) => console.log('>>', ...mgs)
 

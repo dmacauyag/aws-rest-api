@@ -1,9 +1,9 @@
 class UserSeeder {
-    constructor(dynamodb, docClient) {
+    constructor(dynamodb, docClient, tablename) {
       this.dynamodb = dynamodb
       this.docClient = docClient
   
-      this._tablename = 'users'
+      this._tablename = tablename
     }
   
     async hasTable () {
