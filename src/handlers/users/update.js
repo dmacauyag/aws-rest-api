@@ -25,7 +25,7 @@ exports.handler = async (event) => {
     return badRequest()
   }
 
-  await repository.put(JSON.stringify(user))
+  await repository.put(user)
 
-  return ok(user)
+  return ok(JSON.stringify(user))
 }
