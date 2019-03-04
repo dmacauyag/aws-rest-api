@@ -1,12 +1,13 @@
 class UsersRepository {
     get _baseParams () {
         return {
-            TableName: 'users'
+            TableName: this._tableName
         }
     }
 
-    constructor (documentClient) {
+    constructor (documentClient, tableName) {
         this._documentClient = documentClient
+        this._tableName = tableName
     }
 
     async list () {
