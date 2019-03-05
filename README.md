@@ -14,6 +14,13 @@ Starter code to practice creating a standard RESTful API using AWS Lambda, API G
 $ npm install
 ```
 
+Create a `.env` file from the root of the project. Copy the following into the file:
+```
+AWS_ENDPOINT="http://localhost:8000"
+AWS_REGION="localhost"
+USERS_TABLE='users-api-dev-users'
+```
+
 ## Development
 ### Set up DynamoDB Locally
 Follow the steps below to set up DynamoDB locally for development.
@@ -58,7 +65,7 @@ Open Postman to test the different available routes:
 - DELETE - `http://localhost:3000/user/${id}` (delete an existing user)
 
 ## Deployment
-Deployment is done using the serverless framework. Copy the following into your local `.aws/credentials` file
+Deployment is done using the serverless framework. Copy the following into your local `~user/.aws/credentials` file
 
 ```
 # serverless-agent
